@@ -53,9 +53,9 @@ Everything is sourced from the resume and the project READMEs on GitHub. Values 
 
 ### Resume
 
-The PDF is served from `public/resume/Sumitabh_Ahirwar_Resume.pdf`. To update it, replace that file (same name), or change `profile.resume` in `src/data/profile.js`.
+The PDF is served from `public/resume/Sumitabh_Ahirwar.pdf`. To update it, replace that file keeping the same name — or, if you rename it, update `profile.resume.href` in `src/data/profile.js` to match. `npm run dev` warns and `npm run build` fails if the file named there doesn't exist, so a broken download link can't be deployed by accident.
 
-> The current PDF includes a phone number and registration number. If you would rather not publish those, upload a trimmed version.
+> The current PDF includes your phone number. If you would rather not publish it, upload a version without it.
 
 ### Project screenshots
 

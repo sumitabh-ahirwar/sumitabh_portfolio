@@ -1,5 +1,5 @@
 // Single source of truth for personal details and links.
-// Every value here comes from the resume (public/resume/Sumitabh_Ahirwar_Resume.pdf).
+// Every value here comes from the resume (public/resume/Sumitabh_Ahirwar.pdf).
 // Edit this file to update contact details or links across the whole site.
 
 export const profile = {
@@ -16,8 +16,10 @@ export const profile = {
   status: 'B.Tech CSE · MNNIT Allahabad · Class of 2027',
   location: 'Prayagraj, India',
   email: 'sumitabhah7869@gmail.com',
+  // href must match the file name in public/resume/ (the build fails if it doesn't).
+  // fileName is the name the visitor's download is saved as.
   resume: {
-    href: '/resume/Sumitabh_Ahirwar_Resume.pdf',
+    href: '/resume/Sumitabh_Ahirwar.pdf',
     fileName: 'Sumitabh_Ahirwar_Resume.pdf',
   },
 };
