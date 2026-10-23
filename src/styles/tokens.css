@@ -1,0 +1,66 @@
+/* Design tokens — the single place to tune colour, type, spacing and motion. */
+:root {
+  /* Surfaces: deep black → midnight navy → charcoal */
+  --bg-0: #04060c;
+  --bg-1: #070b16;
+  --bg-2: #0b1121;
+  --bg-3: #111a30;
+  --surface: rgba(13, 19, 37, 0.66);
+  --surface-2: rgba(19, 28, 52, 0.6);
+  --surface-solid: #0c1324;
+
+  /* Lines */
+  --line: rgba(140, 170, 255, 0.11);
+  --line-2: rgba(140, 170, 255, 0.2);
+  --line-3: rgba(140, 170, 255, 0.34);
+
+  /* Text */
+  --text: #e9eefb;
+  --text-2: #a9b4cd;
+  --text-3: #7f8baa;
+
+  /* Accents — cyan leads, blue supports, violet is rare */
+  --cyan: #5ee7ff;
+  --cyan-rgb: 94, 231, 255;
+  --blue: #4d7dff;
+  --blue-rgb: 77, 125, 255;
+  --violet: #9a8cff;
+  --violet-rgb: 154, 140, 255;
+  --success: #5ef0b0;
+  --danger: #ff7a90;
+
+  --grad-signal: linear-gradient(90deg, var(--cyan), var(--blue) 55%, var(--violet));
+  --grad-text: linear-gradient(100deg, #f4f8ff 0%, #b9ecff 38%, #7fa3ff 70%, #a99cff 100%);
+
+  /* Type */
+  --font-sans: 'Space Grotesk Variable', 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --fs-xl: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+  --fs-2xl: clamp(2.2rem, 1.4rem + 3.4vw, 4.4rem);
+  --fs-display: clamp(2.6rem, 1.2rem + 6.2vw, 7.4rem);
+
+  /* Space & layout */
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1320px;
+  --nav-h: 72px;
+  --section-y: clamp(96px, 14vh, 168px);
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+
+  /* Motion (CSS side; JS mirrors these in src/lib/motion.js) */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 180ms;
+  --dur-2: 420ms;
+  --dur-3: 800ms;
+
+  --shadow-1: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 20px 60px -30px rgba(0, 0, 0, 0.9);
+  --shadow-glow: 0 0 0 1px rgba(var(--cyan-rgb), 0.25), 0 10px 40px -12px rgba(var(--cyan-rgb), 0.35);
+}

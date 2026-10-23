@@ -1,0 +1,47 @@
+/* Scroll reveals driven by useSectionReveal (classes are only added when motion is allowed).
+   `backwards` fill keeps elements hidden during their delay, then hands control back to
+   normal styles — so hover transforms keep working after the reveal. */
+
+.rv:not(.rv-in)[data-reveal='fade'],
+.rv:not(.rv-in)[data-reveal='stagger'] > *,
+.rv:not(.rv-in)[data-reveal='heading'] .split-inner,
+.rv:not(.rv-in)[data-reveal='line'] {
+  opacity: 0;
+}
+.rv:not(.rv-in)[data-reveal='heading'] .split-inner {
+  opacity: 1;
+  transform: translateY(115%);
+}
+
+.rv-in[data-reveal='fade'] {
+  animation: rv-rise 1s var(--ease-out) backwards;
+}
+.rv-in[data-reveal='stagger'] > * {
+  animation: rv-rise 0.9s var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+.rv-in[data-reveal='heading'] .split-inner {
+  animation: rv-mask 1.1s var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}
+.rv-in[data-reveal='line'] {
+  transform-origin: 0 50%;
+  animation: rv-line 1.3s var(--ease-in-out) backwards;
+}
+
+@keyframes rv-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+@keyframes rv-mask {
+  from {
+    transform: translateY(115%);
+  }
+}
+@keyframes rv-line {
+  from {
+    transform: scaleX(0);
+  }
+}

@@ -1,0 +1,197 @@
+.contact {
+  overflow: hidden;
+  padding-bottom: clamp(100px, 14vh, 160px);
+}
+.contact__glow {
+  position: absolute;
+  left: 50%;
+  bottom: -40%;
+  width: min(1400px, 140vw);
+  aspect-ratio: 2 / 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, rgba(var(--blue-rgb), 0.16), transparent 70%),
+    radial-gradient(closest-side at 60% 40%, rgba(var(--cyan-rgb), 0.08), transparent 70%);
+  pointer-events: none;
+}
+.contact .section-index {
+  margin-bottom: 26px;
+}
+.contact .section-index .signal-line {
+  max-width: 260px;
+}
+.contact__title {
+  font-size: clamp(2.5rem, 1.2rem + 5.4vw, 6.4rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  max-width: 14ch;
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.contact__title [aria-hidden] > span:nth-last-child(-n + 3) .split-inner {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.contact__lede {
+  max-width: 56ch;
+  font-size: var(--fs-md);
+  color: var(--text-2);
+  margin-bottom: clamp(48px, 7vw, 88px);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(20px, 3vw, 40px);
+  align-items: stretch;
+}
+
+.contact__channels {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.contact__link {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  color: var(--text-2);
+  transition:
+    border-color var(--dur-2),
+    background var(--dur-2),
+    color var(--dur-2);
+}
+.contact__link b {
+  display: block;
+  font-weight: 500;
+  color: var(--text);
+}
+.contact__link small {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-3);
+}
+.contact__link > svg:last-of-type {
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.contact__link:hover {
+  border-color: rgba(var(--cyan-rgb), 0.4);
+  background: rgba(var(--cyan-rgb), 0.04);
+  color: var(--text);
+}
+.contact__link:hover > svg:last-of-type {
+  transform: translate(3px, -3px);
+}
+
+/* Direct-line panel */
+.beacon {
+  position: relative;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, rgba(19, 28, 54, 0.75), rgba(9, 14, 28, 0.85));
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+.beacon::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--cyan-rgb), 0.7), transparent);
+}
+.beacon__bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--line);
+}
+.beacon__bar h3 {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.beacon__to {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+.beacon__led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: beacon-blink 2.4s var(--ease-in-out) infinite;
+}
+@keyframes beacon-blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+.scope {
+  display: block;
+  width: 100%;
+  height: 88px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(var(--cyan-rgb), 0.025), transparent);
+}
+.beacon__body {
+  padding: clamp(24px, 3vw, 36px) clamp(20px, 3vw, 36px) clamp(24px, 3vw, 32px);
+}
+.beacon__address {
+  display: block;
+  margin: 10px 0 26px;
+  font-size: clamp(1.35rem, 0.9rem + 1.8vw, 2.3rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  transition: color var(--dur-1);
+}
+.beacon__address:hover {
+  color: var(--cyan);
+}
+.beacon__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.beacon__hint {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: var(--text-3);
+}
+
+.contact__glyph {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 960px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .beacon__actions .btn {
+    flex: 1 1 auto;
+  }
+  .beacon__actions .btn:first-child {
+    flex-basis: 100%;
+  }
+}

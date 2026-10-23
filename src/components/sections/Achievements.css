@@ -1,0 +1,208 @@
+.ach__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(28px, 4vw, 64px);
+}
+.ach__colhead {
+  margin-bottom: 16px;
+}
+
+.ach__contests {
+  border-top: 1px solid var(--line);
+}
+.ach__contest {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ach__rank {
+  white-space: nowrap;
+  font-size: clamp(2.6rem, 1.8rem + 2.6vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  background: linear-gradient(120deg, #f4f8ff, var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+.ach__rank .counter__prefix {
+  font-size: 0.55em;
+  letter-spacing: -0.02em;
+  margin-right: 0.08em;
+  vertical-align: 0.42em;
+}
+.ach__contest h3 {
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.ach__contest p {
+  color: var(--text-2);
+  font-size: 0.92rem;
+}
+.ach__year {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+.ach__ratings {
+  display: grid;
+  gap: 12px;
+}
+.ach__rating {
+  --r: var(--cyan);
+  position: relative;
+  display: grid;
+  gap: 10px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-2),
+    transform var(--dur-2) var(--ease-out);
+}
+.ach__rating--codeforces {
+  --r: #7aa0ff;
+}
+.ach__rating--codechef {
+  --r: var(--violet);
+}
+.ach__rating::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--r);
+  opacity: 0.8;
+}
+.ach__rating:hover {
+  border-color: var(--line-2);
+  transform: translateX(4px);
+}
+.ach__rtop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ach__platform {
+  font-weight: 500;
+}
+.ach__badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--r);
+  border: 1px solid color-mix(in srgb, var(--r) 45%, transparent);
+}
+.ach__value {
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.ach__rfoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-3);
+}
+.ach__rfoot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  color: var(--text-2);
+  transition: color var(--dur-1);
+}
+.ach__rfoot a:hover {
+  color: var(--r);
+}
+
+.ach__timeline {
+  position: relative;
+  margin-top: 72px;
+}
+.ach__track {
+  height: 1px;
+  background: var(--line);
+  margin-bottom: 28px;
+}
+.ach__track span {
+  display: block;
+  height: 1px;
+  background: var(--grad-signal);
+}
+.ach__timeline > ol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.ach__timeline > ol > li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+}
+.ach__timeline > ol > li::before {
+  content: '';
+  position: absolute;
+  top: -33px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg-0);
+  border: 1px solid var(--cyan);
+  box-shadow: 0 0 10px rgba(var(--cyan-rgb), 0.6);
+}
+.ach__tyear {
+  font-size: 0.85rem;
+  color: var(--cyan);
+}
+.ach__timeline ul {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  color: var(--text-2);
+  font-size: 0.92rem;
+}
+.ach__note {
+  margin-top: 40px;
+}
+
+@media (max-width: 960px) {
+  .ach__grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .ach__contest {
+    grid-template-columns: 1fr auto;
+    gap: 6px 16px;
+  }
+  .ach__contest > div {
+    grid-column: 1 / -1;
+  }
+  .ach__contest .ach__rank {
+    grid-row: 1;
+  }
+  .ach__timeline > ol {
+    grid-template-columns: 1fr;
+  }
+  .ach__timeline > ol > li:not(:first-child)::before {
+    display: none;
+  }
+}

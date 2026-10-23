@@ -1,0 +1,188 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(40px, 6vw, 110px);
+  align-items: start;
+}
+.about__head {
+  position: sticky;
+  top: calc(var(--nav-h) + 40px);
+}
+.about__head .section-head {
+  margin-bottom: 40px;
+}
+
+.about__lead {
+  font-size: clamp(1.45rem, 1.1rem + 1.35vw, 2.35rem);
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  font-weight: 450;
+  color: var(--text);
+  margin-bottom: 40px;
+  text-wrap: pretty;
+}
+
+.about__copy {
+  display: grid;
+  gap: 18px;
+  max-width: 60ch;
+  color: var(--text-2);
+  font-size: var(--fs-md);
+  margin-bottom: 72px;
+}
+
+.about__principles .eyebrow {
+  margin-bottom: 18px;
+}
+.about__principles ol {
+  border-top: 1px solid var(--line);
+}
+.about__principles li {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 18px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  transition: background var(--dur-2);
+}
+.about__principles li:hover .about__pi {
+  color: var(--cyan);
+}
+.about__pi {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  transition: color var(--dur-1);
+}
+.about__principles h3 {
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.about__principles p {
+  color: var(--text-2);
+  font-size: 0.95rem;
+}
+.about__pref {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 56px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--line);
+}
+.about__stats li {
+  display: grid;
+  gap: 6px;
+  padding: 22px 20px;
+  background: var(--bg-1);
+}
+.about__stats strong {
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.about__stats span {
+  font-size: 0.8rem;
+  color: var(--text-3);
+  line-height: 1.35;
+}
+
+/* Intersection graphic */
+.isect {
+  position: relative;
+  width: min(100%, 420px);
+}
+.isect__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.isect__guide {
+  fill: none;
+  stroke: var(--line);
+  stroke-dasharray: 2 6;
+}
+.isect__orbit {
+  transform-origin: 0 0;
+  animation: isect-spin var(--d) linear infinite;
+  animation-play-state: paused;
+}
+.isect.is-live .isect__orbit {
+  animation-play-state: running;
+}
+@keyframes isect-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.isect__ring {
+  fill: none;
+  stroke: var(--c);
+  stroke-opacity: 0.38;
+  stroke-width: 1;
+}
+.isect__bead {
+  fill: var(--c);
+  filter: drop-shadow(0 0 6px var(--c));
+}
+.isect__bead--sm {
+  opacity: 0.6;
+}
+.isect__core {
+  fill: #e9f9ff;
+  filter: drop-shadow(0 0 10px var(--cyan));
+}
+.isect__labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 20px;
+  font-size: 0.72rem;
+  color: var(--text-2);
+}
+.isect__labels span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.isect__labels span::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c);
+}
+
+@media (max-width: 960px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+  .about__head {
+    position: static;
+  }
+  .about__visual {
+    display: none;
+  }
+  .about__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .about__principles li {
+    grid-template-columns: 36px 1fr;
+  }
+  .about__pref {
+    grid-column: 2;
+  }
+}

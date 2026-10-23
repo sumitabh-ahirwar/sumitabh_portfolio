@@ -1,0 +1,70 @@
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2.2s var(--ease-out);
+}
+.hero-scene.is-active {
+  opacity: 1;
+}
+
+.hero-scene__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-scene__canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hero-scene__fallback {
+  animation: fallback-drift 18s var(--ease-in-out) infinite alternate;
+}
+@keyframes fallback-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-1.5%, -1%, 0) scale(1.04);
+  }
+}
+
+.hero-scene__glow {
+  position: absolute;
+  width: min(90vw, 1100px);
+  aspect-ratio: 1;
+  right: -18%;
+  top: 50%;
+  translate: 0 -50%;
+  background:
+    radial-gradient(closest-side, rgba(var(--blue-rgb), 0.22), transparent 70%),
+    radial-gradient(closest-side at 40% 60%, rgba(var(--violet-rgb), 0.1), transparent 70%);
+  filter: blur(10px);
+}
+
+/* Keeps the headline legible over the scene */
+.hero-scene__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(4, 6, 12, 0.92) 0%, rgba(4, 6, 12, 0.6) 34%, rgba(4, 6, 12, 0) 62%),
+    linear-gradient(180deg, rgba(4, 6, 12, 0) 70%, var(--bg-0) 100%);
+}
+
+@media (max-width: 899px) {
+  .hero-scene__glow {
+    right: auto;
+    left: 50%;
+    top: 30%;
+    translate: -50% -50%;
+  }
+  .hero-scene__veil {
+    background:
+      linear-gradient(180deg, rgba(4, 6, 12, 0.15) 0%, rgba(4, 6, 12, 0.55) 38%, rgba(4, 6, 12, 0.92) 62%, var(--bg-0) 100%);
+  }
+}

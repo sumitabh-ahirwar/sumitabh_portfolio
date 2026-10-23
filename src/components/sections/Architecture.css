@@ -1,0 +1,76 @@
+.arch__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.arch__tab {
+  --a: var(--cyan);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 14px;
+  row-gap: 2px;
+  align-items: baseline;
+  padding: 18px 20px;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: rgba(10, 15, 30, 0.5);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-2),
+    background var(--dur-2);
+}
+.arch__tab[data-accent='blue'] {
+  --a: #7aa0ff;
+}
+.arch__tab[data-accent='violet'] {
+  --a: var(--violet);
+}
+.arch__tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--a);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.6s var(--ease-out);
+}
+.arch__tab:hover {
+  border-color: var(--line-2);
+}
+.arch__tab.is-on {
+  border-color: color-mix(in srgb, var(--a) 45%, transparent);
+  background: color-mix(in srgb, var(--a) 7%, rgba(10, 15, 30, 0.6));
+}
+.arch__tab.is-on::after {
+  transform: scaleX(1);
+}
+.arch__tab .mono {
+  grid-row: span 2;
+  font-size: 0.75rem;
+  color: var(--a);
+}
+.arch__tab b {
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+.arch__tab small {
+  color: var(--text-3);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 720px) {
+  .arch__tabs {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .arch__tab {
+    padding: 14px 16px;
+  }
+}
